@@ -1,11 +1,11 @@
-/* Теоретическая часть:
-	1. Уровни видимости
-		"+" - открытое поле - public
-		"-" - закрытое поле - private
-		"#" - защищенное поле - protected
-	2. virtual void - виртуальная функция - "один интерфейс - множество реализаций". 
-	3. override - ключевое слово для виртуальной функции, чтобы показать, что мы хотим переопределить
-		её, а не скрыть
+/* РўРµРѕСЂРµС‚РёС‡РµСЃРєР°СЏ С‡Р°СЃС‚СЊ:
+	1. РЈСЂРѕРІРЅРё РІРёРґРёРјРѕСЃС‚Рё
+		"+" - РѕС‚РєСЂС‹С‚РѕРµ РїРѕР»Рµ - public
+		"-" - Р·Р°РєСЂС‹С‚РѕРµ РїРѕР»Рµ - private
+		"#" - Р·Р°С‰РёС‰РµРЅРЅРѕРµ РїРѕР»Рµ - protected
+	2. virtual void - РІРёСЂС‚СѓР°Р»СЊРЅР°СЏ С„СѓРЅРєС†РёСЏ - "РѕРґРёРЅ РёРЅС‚РµСЂС„РµР№СЃ - РјРЅРѕР¶РµСЃС‚РІРѕ СЂРµР°Р»РёР·Р°С†РёР№". 
+	3. override - РєР»СЋС‡РµРІРѕРµ СЃР»РѕРІРѕ РґР»СЏ РІРёСЂС‚СѓР°Р»СЊРЅРѕР№ С„СѓРЅРєС†РёРё, С‡С‚РѕР±С‹ РїРѕРєР°Р·Р°С‚СЊ, С‡С‚Рѕ РјС‹ С…РѕС‚РёРј РїРµСЂРµРѕРїСЂРµРґРµР»РёС‚СЊ
+		РµС‘, Р° РЅРµ СЃРєСЂС‹С‚СЊ
 */
 
 #include <iostream>
@@ -19,7 +19,7 @@ public:
 	virtual string GetName() = 0;
 };
 
-class Shape2D : public Shape { //наследование
+class Shape2D : public Shape { //РЅР°СЃР»РµРґРѕРІР°РЅРёРµ
 private:
 	float area = 0;
 	virtual void CalculateArea() = 0;
@@ -37,7 +37,7 @@ public:
 	};
 };
 
-class Shape3D : public Shape { //наследование
+class Shape3D : public Shape { //РЅР°СЃР»РµРґРѕРІР°РЅРёРµ
 private:
 	float volume = 0;
 	virtual void CalculateVolume() = 0;
@@ -55,7 +55,7 @@ public:
 	};
 };
 
-class Square : public Shape2D { //наследование
+class Square : public Shape2D { //РЅР°СЃР»РµРґРѕРІР°РЅРёРµ
 private:
 	float side;
 public:
@@ -65,7 +65,7 @@ public:
 	void ShowInfo();
 };
 
-class Triangle : public Shape2D { //наследование
+class Triangle : public Shape2D { //РЅР°СЃР»РµРґРѕРІР°РЅРёРµ
 private:
 	float base;
 	float height;
@@ -76,7 +76,7 @@ public:
 	void ShowInfo();
 };
 
-class Circle : public Shape2D { //наследование
+class Circle : public Shape2D { //РЅР°СЃР»РµРґРѕРІР°РЅРёРµ
 private:
 	float radius;
 public:
@@ -86,7 +86,7 @@ public:
 	void ShowInfo();
 };
 
-class TriangularPiramid : public Shape3D { //наследование
+class TriangularPiramid : public Shape3D { //РЅР°СЃР»РµРґРѕРІР°РЅРёРµ
 private:
 	Triangle start_triangle;
 	float height;
@@ -97,7 +97,7 @@ public:
 	void ShowInfo();
 };
 
-class Cylinder : public Shape3D { //наследование
+class Cylinder : public Shape3D { //РЅР°СЃР»РµРґРѕРІР°РЅРёРµ
 private:
 	Circle start_circle;
 	float height;
@@ -108,7 +108,7 @@ public:
 	void ShowInfo() override;
 };
 
-class Sphere : public Shape3D { //наследование
+class Sphere : public Shape3D { //РЅР°СЃР»РµРґРѕРІР°РЅРёРµ
 private:
 	float radius;
 public:
