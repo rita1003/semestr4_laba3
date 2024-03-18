@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class TriangularPiramid : public Shape3D { //наследование
+class TriangularPiramid : public Shape3D { //РЅР°СЃР»РµРґРѕРІР°РЅРёРµ
 private:
 	Triangle start_triangle;
 	float height;
