@@ -3,102 +3,19 @@
 //каждой фигуры, т.к. мне необходимо лишь продемонстрировать работу этих самых операций.
 
 #include <iostream>
-#include "header.h"
+#include "Circle.h"
+#include "Triangle.h"
+#include "Square.h"
+#include "TriangularPiramid.h"
+#include "Cylinder.h"
+#include "Sphere.h"
 
 using namespace std;
-
-//Для Shape2D:
-
-float Shape2D::GetArea() { return area; };
-void Shape2D::SetArea(float a) { area = a; }
-
-//Для Shape3D:
-float Shape3D::GetVolume() { return volume; };
-void Shape3D::SetVolume(float a) { volume = a; }
-
-
-//Для Square:
-
-Square::Square(float side) : side(side) { CalculateArea(); }
-void Square::CalculateArea() {SetArea(side * side);}
-string Square::GetName() {return "Square";}
-
-void Square::ShowInfo() {
-	cout << endl<< "I am a " << GetName() << "!" << endl;
-	cout << "	My area = " << GetArea() << endl;
-	cout << "	My side = " << side << endl;
-}
-
-//Для Triangle:
-
-Triangle::Triangle(float base, float height) : base(base), height(height) { CalculateArea(); }
-void Triangle::CalculateArea() { SetArea(0.5 * base * height); }
-string Triangle::GetName() { return "Triangle"; }
-
-void Triangle::ShowInfo() {
-	cout << endl << "I am a " << GetName() << "!" << endl;
-	cout << "	My area = " << GetArea() << endl;
-	cout << "	My base = " << base << endl;
-	cout << "	My height = " << height << endl;
-}
-
-//Для Circle:
-
-Circle::Circle(float radius) : radius(radius) { CalculateArea(); }
-void Circle::CalculateArea() { SetArea(3.14 * radius * radius); }
-string Circle::GetName() { return "Circle"; }
-
-void Circle::ShowInfo() {
-	cout << endl << "I am a " << GetName() << "!" << endl;
-	cout << "	My area = " << GetArea() << endl;
-	cout << "	My radius = " << radius << endl;
-}
-
-//Для Sphere:
-
-Sphere::Sphere(float radius) : radius(radius) { CalculateVolume(); }
-void Sphere::CalculateVolume() { SetVolume(4/3 * 3.14 * radius * radius * radius); }
-string Sphere::GetName() { return "Sphere"; }
-
-void Sphere::ShowInfo() {
-	cout << endl << "I am a " << GetName() << "!" << endl;
-	cout << "	My volume = " << GetVolume() << endl;
-	cout << "	My radius = " << radius << endl;
-}
-
-//Для TriangularPiramid:
-
-TriangularPiramid::TriangularPiramid(float base, float height) : start_triangle(base, height), height(height) {
-	CalculateVolume();
-}
-void TriangularPiramid::CalculateVolume() { SetVolume((1.0f / 3.0f) * height * start_triangle.GetArea()); }
-string TriangularPiramid::GetName() { return "Triangular Piramid"; }
-
-void TriangularPiramid::ShowInfo() {
-	cout << endl << "I am a " << GetName() << "!" << endl;
-	cout << "	My volume = " << GetVolume() << endl;
-	cout << "	My height = " << height << endl;
-}
-
-//Для Cylinder:
-
-Cylinder::Cylinder(float radius, float height) : start_circle(radius), height(height) {
-	CalculateVolume();
-}
-void Cylinder::CalculateVolume() { SetVolume(3.14 * height * start_circle.GetArea()); }
-string Cylinder::GetName() { return "Cylinder"; }
-
-void Cylinder::ShowInfo() {
-	cout << endl << "I am a " << GetName() << "!" << endl;
-	cout << "	My volume = " << GetVolume() << endl;
-	cout << "	My height = " << height << endl;
-}
-
 
 int main() {
 	int fig_type;
 	int num_fig;
-	float side, base, height, radius;
+	float side, base, height, radius, scaleFactor;
 
 	cout << "Hello! There are 2 different type of figures." << endl << endl << "Choose:" << endl;
 	cout << "1. Shape 2D" << endl;
@@ -121,9 +38,15 @@ int main() {
 				cin >> side;
 				Square new_square(side);
 				new_square.ShowInfo();
-				cout << "The result of operation > is " << (square.GetArea() > new_square.GetArea()) << endl;
+				cout << endl<< "The result of operation > is " << (square.GetArea() > new_square.GetArea()) << endl;
 				cout << "The result of operation < is " << (square.GetArea() < new_square.GetArea()) << endl;
-				cout << "The result of opertation == is " << (square.GetArea() == new_square.GetArea()) << endl;
+				cout << "The result of opertation == is " << (square.GetArea() == new_square.GetArea()) << endl << endl;
+				cout << "Testing of method Scale():" << endl;
+				cout << endl << "Write a scale factor: " << endl<< endl;
+				cin >> scaleFactor;
+				cout << endl << "New square is: " << endl;
+				new_square.Scale(scaleFactor);
+				new_square.ShowInfo();
 			}
 			else if (num_fig == 2) {
 				cout << endl << "Write base of triangle: " << endl << endl;
@@ -132,11 +55,23 @@ int main() {
 				cin >> height;
 				Triangle triangle(base, height);
 				triangle.ShowInfo();
+				cout << endl <<"Testing of method Scale():" << endl;
+				cout << endl << "Write a scale factor: " << endl << endl;
+				cin >> scaleFactor;
+				cout << endl << "New square is: " << endl;
+				triangle.Scale(scaleFactor);
+				triangle.ShowInfo();
 			}
 			else if (num_fig == 3) {
 				cout << endl << "Write radius of circle: " << endl << endl;
 				cin >> radius;
 				Circle circle(radius);
+				circle.ShowInfo();
+				cout << endl << "Testing of method Scale():" << endl;
+				cout << endl << "Write a scale factor: " << endl << endl;
+				cin >> scaleFactor;
+				cout << endl << "New square is: " << endl;
+				circle.Scale(scaleFactor);
 				circle.ShowInfo();
 			}
 			else {
@@ -155,6 +90,11 @@ int main() {
 				cin >> base;
 				TriangularPiramid triangular(base, height);
 				triangular.ShowInfo();
+				cout << endl << "Write a scale factor: " << endl << endl;
+				cin >> scaleFactor;
+				cout << endl << "New triangular piramid is: " << endl;
+				triangular.Scale(scaleFactor);
+				triangular.ShowInfo();
 			}
 			else if (num_fig == 2) {
 				cout << endl << "Write height of cylinder: " << endl << endl;
@@ -162,6 +102,11 @@ int main() {
 				cout << endl << "Write radius of circle: " << endl << endl;
 				cin >> radius;
 				Cylinder cylin(radius, height);
+				cylin.ShowInfo();
+				cout << endl<< "Write a scale factor: " << endl << endl;
+				cin >> scaleFactor;
+				cout << endl << "New cylinder is: " << endl;
+				cylin.Scale(scaleFactor);
 				cylin.ShowInfo();
 
 			}
@@ -178,6 +123,11 @@ int main() {
 				cout << "The result of operation > is " << (sphere.GetVolume() > new_sphere.GetVolume()) << endl;
 				cout << "The result of operation < is " << (sphere.GetVolume() < new_sphere.GetVolume()) << endl;
 				cout << "The result of opertation == is " << (sphere.GetVolume() == new_sphere.GetVolume()) << endl;
+				cout << endl << "Write a scale factor: " << endl << endl;
+				cin >> scaleFactor;
+				cout << endl << "New square is: " << endl;
+				new_sphere.Scale(scaleFactor);
+				new_sphere.ShowInfo();
 			}
 			else {
 				cout << endl << "ERROR" << endl;
