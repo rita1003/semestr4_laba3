@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class Cylinder : public Shape3D { //наследование
+class Cylinder : public Shape3D { //РЅР°СЃР»РµРґРѕРІР°РЅРёРµ
 private:
 	Circle start_circle;
 	float height;
