@@ -1,23 +1,23 @@
-//Хочу обратить, что работа операций сравнений для 2D фигур демонстрирована только для квадратов
-//и операции для 3D фигур только для сфер. Не вижу смысла расписывать работу каждой операции для
-//каждой фигуры, т.к. мне необходимо лишь продемонстрировать работу этих самых операций.
+//РҐРѕС‡Сѓ РѕР±СЂР°С‚РёС‚СЊ, С‡С‚Рѕ СЂР°Р±РѕС‚Р° РѕРїРµСЂР°С†РёР№ СЃСЂР°РІРЅРµРЅРёР№ РґР»СЏ 2D С„РёРіСѓСЂ РґРµРјРѕРЅСЃС‚СЂРёСЂРѕРІР°РЅР° С‚РѕР»СЊРєРѕ РґР»СЏ РєРІР°РґСЂР°С‚РѕРІ
+//Рё РѕРїРµСЂР°С†РёРё РґР»СЏ 3D С„РёРіСѓСЂ С‚РѕР»СЊРєРѕ РґР»СЏ СЃС„РµСЂ. РќРµ РІРёР¶Сѓ СЃРјС‹СЃР»Р° СЂР°СЃРїРёСЃС‹РІР°С‚СЊ СЂР°Р±РѕС‚Сѓ РєР°Р¶РґРѕР№ РѕРїРµСЂР°С†РёРё РґР»СЏ
+//РєР°Р¶РґРѕР№ С„РёРіСѓСЂС‹, С‚.Рє. РјРЅРµ РЅРµРѕР±С…РѕРґРёРјРѕ Р»РёС€СЊ РїСЂРѕРґРµРјРѕРЅСЃС‚СЂРёСЂРѕРІР°С‚СЊ СЂР°Р±РѕС‚Сѓ СЌС‚РёС… СЃР°РјС‹С… РѕРїРµСЂР°С†РёР№.
 
 #include <iostream>
 #include "header.h"
 
 using namespace std;
 
-//Для Shape2D:
+//Р”Р»СЏ Shape2D:
 
 float Shape2D::GetArea() { return area; };
 void Shape2D::SetArea(float a) { area = a; }
 
-//Для Shape3D:
+//Р”Р»СЏ Shape3D:
 float Shape3D::GetVolume() { return volume; };
 void Shape3D::SetVolume(float a) { volume = a; }
 
 
-//Для Square:
+//Р”Р»СЏ Square:
 
 Square::Square(float side) : side(side) { CalculateArea(); }
 void Square::CalculateArea() {SetArea(side * side);}
@@ -29,7 +29,7 @@ void Square::ShowInfo() {
 	cout << "	My side = " << side << endl;
 }
 
-//Для Triangle:
+//Р”Р»СЏ Triangle:
 
 Triangle::Triangle(float base, float height) : base(base), height(height) { CalculateArea(); }
 void Triangle::CalculateArea() { SetArea(0.5 * base * height); }
@@ -42,7 +42,7 @@ void Triangle::ShowInfo() {
 	cout << "	My height = " << height << endl;
 }
 
-//Для Circle:
+//Р”Р»СЏ Circle:
 
 Circle::Circle(float radius) : radius(radius) { CalculateArea(); }
 void Circle::CalculateArea() { SetArea(3.14 * radius * radius); }
@@ -54,7 +54,7 @@ void Circle::ShowInfo() {
 	cout << "	My radius = " << radius << endl;
 }
 
-//Для Sphere:
+//Р”Р»СЏ Sphere:
 
 Sphere::Sphere(float radius) : radius(radius) { CalculateVolume(); }
 void Sphere::CalculateVolume() { SetVolume(4/3 * 3.14 * radius * radius * radius); }
@@ -66,7 +66,7 @@ void Sphere::ShowInfo() {
 	cout << "	My radius = " << radius << endl;
 }
 
-//Для TriangularPiramid:
+//Р”Р»СЏ TriangularPiramid:
 
 TriangularPiramid::TriangularPiramid(float base, float height) : start_triangle(base, height), height(height) {
 	CalculateVolume();
@@ -80,7 +80,7 @@ void TriangularPiramid::ShowInfo() {
 	cout << "	My height = " << height << endl;
 }
 
-//Для Cylinder:
+//Р”Р»СЏ Cylinder:
 
 Cylinder::Cylinder(float radius, float height) : start_circle(radius), height(height) {
 	CalculateVolume();
