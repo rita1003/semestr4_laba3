@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Circle : public Shape2D { //наследование
+class Circle : public Shape2D { //РЅР°СЃР»РµРґРѕРІР°РЅРёРµ
 private:
 	float radius;
 public:
