@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Square : public Shape2D { //наследование
+class Square : public Shape2D { //РЅР°СЃР»РµРґРѕРІР°РЅРёРµ
 private:
 	float side;
 public:
