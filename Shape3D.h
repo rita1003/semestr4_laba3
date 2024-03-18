@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Shape3D : public Shape { //наследование
+class Shape3D : public Shape { //РЅР°СЃР»РµРґРѕРІР°РЅРёРµ
 private:
 	float volume = 0;
 	virtual void CalculateVolume() = 0;
