@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Sphere : public Shape3D { //наследование
+class Sphere : public Shape3D { //РЅР°СЃР»РµРґРѕРІР°РЅРёРµ
 private:
 	float radius;
 public:
