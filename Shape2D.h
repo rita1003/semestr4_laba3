@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Shape2D : public Shape { //наследование
+class Shape2D : public Shape { //РЅР°СЃР»РµРґРѕРІР°РЅРёРµ
 private:
 	float area = 0;
 	virtual void CalculateArea() = 0;
