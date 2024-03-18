@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Triangle : public Shape2D { //наследование
+class Triangle : public Shape2D { //РЅР°СЃР»РµРґРѕРІР°РЅРёРµ
 private:
 	float base;
 	float height;
